@@ -1,0 +1,2 @@
+rootProject.name = "Carfax demo"
+include ':app'
