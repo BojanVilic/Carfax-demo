@@ -1,8 +1,13 @@
-package com.example.carfaxdemo.ui.models
+package com.example.carfaxdemo.persistence
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
+@Entity(tableName = "vehicle_listings")
 data class VehicleListingDetails (
+    @PrimaryKey
+    val vin: String,
     val year: Int?,
     val mileage: Int?,
     val phone: Long?,
@@ -18,6 +23,5 @@ data class VehicleListingDetails (
     val model: String?,
     val trim: String?,
     val city: String?,
-    val state: String?,
-    val vin: String?
+    val state: String?
 ): Serializable

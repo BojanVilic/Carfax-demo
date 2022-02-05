@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Carfax demo</string>
+    <string name="generic_call_dealer">Call dealer</string>
 </resources>

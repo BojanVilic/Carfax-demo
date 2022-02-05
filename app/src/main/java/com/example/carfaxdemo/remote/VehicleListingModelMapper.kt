@@ -1,7 +1,7 @@
 package com.example.carfaxdemo.remote
 
+import com.example.carfaxdemo.persistence.VehicleListingDetails
 import com.example.carfaxdemo.remote.remote_models.Response
-import com.example.carfaxdemo.ui.models.VehicleListingDetails
 
 class VehicleListingModelMapper {
     fun mapToLocalModel(model: Response): List<VehicleListingDetails> {
@@ -9,6 +9,7 @@ class VehicleListingModelMapper {
         for (listingItem in model.listings!!) {
             localModelList.add(
                 VehicleListingDetails(
+                    listingItem.vin,
                     listingItem.year,
                     listingItem.mileage,
                     listingItem.dealer?.phone,
@@ -24,8 +25,7 @@ class VehicleListingModelMapper {
                     listingItem.model,
                     listingItem.trim,
                     listingItem.dealer?.city,
-                    listingItem.dealer?.state,
-                    listingItem.vin
+                    listingItem.dealer?.state
                 )
             )
         }

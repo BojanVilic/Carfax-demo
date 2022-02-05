@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Listings(
     val dealer: Dealer?,
-    val vin: String?,
+    val vin: String,
     val mileage: Int?,
     val currentPrice: Double?,
     val exteriorColor: String?,

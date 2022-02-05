@@ -5,14 +5,15 @@ import androidx.databinding.BindingAdapter
 import com.example.carfaxdemo.R
 import com.squareup.picasso.Picasso
 
+/**Image url is returning an HTTP exception, code 404 both in the app and on the browser
+ *I will use just a default error placeholder
+ */
 
 @BindingAdapter("urlImage")
 fun bindUrlImage(view: ImageView, imageUrl: String?) {
-    if (imageUrl != null) {
-        Picasso.get()
-            .load(imageUrl)
-            .into(view)
-    } else {
-        view.setImageResource(R.drawable.ic_launcher_background)
-    }
+    Picasso.get()
+        .load(imageUrl)
+        .fit()
+        .error(R.drawable.no_image_found)
+        .into(view)
 }
