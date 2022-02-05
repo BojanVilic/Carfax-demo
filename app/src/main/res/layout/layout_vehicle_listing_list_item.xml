@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="dataContext"
+            type="com.example.carfaxdemo.ui.models.VehicleListingDetails" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_margin="@dimen/default_margin_8"
+        app:cardCornerRadius="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/vehicle_listing_item_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:id="@+id/vehicle_listing_item_title"
+                android:layout_marginTop="@dimen/default_margin_8"
+                android:layout_marginStart="@dimen/default_horizontal_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_listing_item_image"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2011 BMW 3 Series 328i"/>
+
+            <TextView
+                android:id="@+id/vehicle_listing_item_price"
+                style="@style/BasicDescriptionText"
+                android:layout_marginTop="@dimen/default_margin_8"
+                android:layout_marginStart="@dimen/default_horizontal_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_listing_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="$17 234"/>
+
+            <View
+                android:id="@+id/vehicle_listing_item_vertical_divider"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@+id/vehicle_listing_item_price"
+                app:layout_constraintTop_toTopOf="@+id/vehicle_listing_item_price"
+                app:layout_constraintBottom_toBottomOf="@+id/vehicle_listing_item_price"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/light_grey"/>
+
+            <TextView
+                android:id="@+id/vehicle_listing_item_mileage"
+                style="@style/BasicDescriptionText"
+                android:layout_marginTop="@dimen/default_margin_8"
+                android:layout_marginStart="@dimen/default_horizontal_margin"
+                app:layout_constraintStart_toEndOf="@+id/vehicle_listing_item_vertical_divider"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_listing_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="39 136km"/>
+
+            <TextView
+                android:id="@+id/vehicle_listing_item_location"
+                style="@style/BasicDescriptionText"
+                android:layout_marginTop="@dimen/default_margin_8"
+                android:layout_marginStart="@dimen/default_horizontal_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_listing_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Niagara Falls, ON"/>
+
+            <View
+                android:id="@+id/vehicle_listing_item_horizontal_divider"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_listing_item_location"
+                android:layout_margin="16dp"
+                android:background="@color/light_grey"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:id="@+id/vehicle_listing_item_call_dealer"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_listing_item_horizontal_divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/BlueTextHeadline"
+                android:layout_marginTop="@dimen/default_vertical_margin"
+                android:layout_marginBottom="@dimen/default_vertical_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Call dealer"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
