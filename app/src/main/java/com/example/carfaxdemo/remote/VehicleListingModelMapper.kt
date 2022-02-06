@@ -25,7 +25,8 @@ class VehicleListingModelMapper {
                     listingItem.model,
                     listingItem.trim,
                     listingItem.dealer?.city,
-                    listingItem.dealer?.state
+                    listingItem.dealer?.state,
+                    listingItem.fuel
                 )
             )
         }

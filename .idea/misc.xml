@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/bojan/AndroidStudioProjects/Carfaxdemo/app/src/main/res/drawable/no_image_found.xml" value="0.199" />
+        <entry key="..\:/Users/bojan/AndroidStudioProjects/Carfaxdemo/app/src/main/res/font/roboto.xml" value="0.3685185185185185" />
         <entry key="..\:/Users/bojan/AndroidStudioProjects/Carfaxdemo/app/src/main/res/layout/activity_main.xml" value="0.15942028985507245" />
+        <entry key="..\:/Users/bojan/AndroidStudioProjects/Carfaxdemo/app/src/main/res/layout/fragment_details.xml" value="0.33" />
         <entry key="..\:/Users/bojan/AndroidStudioProjects/Carfaxdemo/app/src/main/res/layout/fragment_home.xml" value="0.17249240121580547" />
         <entry key="..\:/Users/bojan/AndroidStudioProjects/Carfaxdemo/app/src/main/res/layout/layout_vehicle_listing_list_item.xml" value="0.3546875" />
       </map>

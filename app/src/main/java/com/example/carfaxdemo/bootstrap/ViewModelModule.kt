@@ -20,9 +20,7 @@ object ViewModelModule {
     }
 
     @Provides
-    fun getDetailsViewModel(
-        repository: Repository
-    ): DetailsViewModel {
-        return DetailsViewModel(repository)
+    fun getDetailsViewModel(): DetailsViewModel {
+        return DetailsViewModel()
     }
 }

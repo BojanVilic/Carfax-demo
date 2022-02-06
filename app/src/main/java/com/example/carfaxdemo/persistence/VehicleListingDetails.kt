@@ -23,5 +23,6 @@ data class VehicleListingDetails (
     val model: String?,
     val trim: String?,
     val city: String?,
-    val state: String?
+    val state: String?,
+    val fuel: String?
 ): Serializable

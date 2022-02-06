@@ -1,13 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.details.DetailsFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello this is a details fragment" />
+    <data>
+        <variable
+            name="dataContext"
+            type="com.example.carfaxdemo.ui.details.DetailsViewModel" />
+    </data>
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/details_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:urlImage="@{dataContext.vehicleListingDetails.photo}"
+            tools:src="@drawable/no_image_found"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/details_title"
+            app:layout_constraintTop_toBottomOf="@+id/details_image"
+            android:layout_marginTop="@dimen/default_vertical_margin"
+            android:layout_marginStart="@dimen/default_horizontal_margin"
+            android:text="@{dataContext.vehicleListingDetails.year + ` ` + dataContext.vehicleListingDetails.make + ` ` + dataContext.vehicleListingDetails.trim}"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textSize="14sp"
+            android:textColor="@color/dark_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2011 BMW 3 Series 328i"/>
+
+        <TextView
+            android:id="@+id/details_price"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:text="@{`$` + dataContext.vehicleListingDetails.currentPrice}"
+            android:layout_marginTop="@dimen/default_margin_8"
+            android:layout_marginStart="@dimen/default_horizontal_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="$17 234"/>
+
+        <View
+            android:id="@+id/details_vertical_divider"
+            android:layout_marginStart="@dimen/default_margin_8"
+            app:layout_constraintStart_toEndOf="@+id/details_price"
+            app:layout_constraintTop_toTopOf="@+id/details_price"
+            app:layout_constraintBottom_toBottomOf="@+id/details_price"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:background="@color/light_grey"/>
+
+        <TextView
+            android:id="@+id/details_mileage"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textAllCaps="false"
+            android:text="@{dataContext.vehicleListingDetails.mileage + ` mi`}"
+            android:layout_marginTop="@dimen/default_margin_8"
+            android:layout_marginStart="@dimen/default_margin_8"
+            app:layout_constraintStart_toEndOf="@+id/details_vertical_divider"
+            app:layout_constraintTop_toBottomOf="@+id/details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="39 136 km"/>
+
+        <View
+            android:id="@+id/details_horizontal_divider"
+            app:layout_constraintTop_toBottomOf="@+id/details_price"
+            android:layout_margin="16dp"
+            android:background="@color/light_grey"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/details_vehicle_info_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_horizontal_margin"
+            android:layout_marginTop="@dimen/default_margin_8"
+            android:text="@string/details_vehicle_info"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_horizontal_divider" />
+
+        <GridLayout
+            android:id="@+id/details_grid_layout"
+            app:layout_constraintTop_toBottomOf="@+id/details_vehicle_info_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/default_vertical_margin"
+            android:layout_marginStart="@dimen/default_horizontal_margin"
+            android:layout_marginEnd="@dimen/default_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_location_title"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                style="@style/DetailsGridValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataContext.vehicleListingDetails.city + `, ` + dataContext.vehicleListingDetails.state}"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                tools:text="London, ON" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_exterior_color_title"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                style="@style/DetailsGridValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataContext.vehicleListingDetails.exteriorColor}"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                tools:text="Blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_interior_color_title"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                style="@style/DetailsGridValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataContext.vehicleListingDetails.interiorColor}"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                tools:text="Black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_drive_type_title"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                style="@style/DetailsGridValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataContext.vehicleListingDetails.driveType}"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                tools:text="FWD" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_transmission_title"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                style="@style/DetailsGridValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataContext.vehicleListingDetails.transmission}"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                tools:text="Automatic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_body_style_title"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                style="@style/DetailsGridValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataContext.vehicleListingDetails.bodyType}"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                tools:text="Sedan" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_engine_title"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                style="@style/DetailsGridValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataContext.vehicleListingDetails.engine}"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                tools:text="4 Cyl 2.4 L" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_fuel_title"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                style="@style/DetailsGridValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataContext.vehicleListingDetails.fuel}"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                tools:text="Gasoline" />
+
+        </GridLayout>
+
+        <View
+            android:id="@+id/details_grid_layout_divider"
+            app:layout_constraintTop_toBottomOf="@+id/details_grid_layout"
+            android:layout_margin="16dp"
+            android:background="@color/light_grey"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <Button
+            android:id="@+id/details_call_dealer"
+            app:layout_constraintTop_toBottomOf="@+id/details_grid_layout_divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/generic_call_dealer"
+            android:linksClickable="true"
+            android:layout_marginTop="@dimen/default_vertical_margin"
+            android:layout_marginBottom="@dimen/default_vertical_margin"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

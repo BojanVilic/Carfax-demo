@@ -19,5 +19,6 @@ data class Listings(
     val year: Int?,
     val make: String?,
     val model: String?,
-    val trim: String?
+    val trim: String?,
+    val fuel: String?
 )

@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Carfax demo</string>
     <string name="generic_call_dealer">Call dealer</string>
+    <string name="details_vehicle_info">Vehicle info</string>
+    <string name="details_location_title">Location</string>
+    <string name="details_exterior_color_title">Exterior Color</string>
+    <string name="details_interior_color_title">Interior color</string>
+    <string name="details_drive_type_title">Drive Type</string>
+    <string name="details_transmission_title">Transmission</string>
+    <string name="details_body_style_title">Body Style</string>
+    <string name="details_engine_title">Engine</string>
+    <string name="details_fuel_title">Fuel</string>
 </resources>

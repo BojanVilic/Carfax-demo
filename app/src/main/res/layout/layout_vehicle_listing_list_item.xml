@@ -11,7 +11,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_margin="@dimen/default_margin_8"
-        app:cardCornerRadius="16dp"
+        app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,7 +55,7 @@
 
             <View
                 android:id="@+id/vehicle_listing_item_vertical_divider"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/default_horizontal_margin"
                 app:layout_constraintStart_toEndOf="@+id/vehicle_listing_item_price"
                 app:layout_constraintTop_toTopOf="@+id/vehicle_listing_item_price"
                 app:layout_constraintBottom_toBottomOf="@+id/vehicle_listing_item_price"
